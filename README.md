@@ -3,9 +3,6 @@
 <a href="https://play.google.com/store/apps/details?id=com.github.client" target="_blank">
   <img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height="60"/>
 </a>
-<a href="https://f-droid.org/repository/browse/?fdid=com.github.client" target="_blank">
-  <img src="https://f-droid.org/wiki/images/5/55/F-Droid-button_get-it-on_bigger.png" height="60"/>
-</a>
 
 Please see the [issues](https://github.com/kba7/trugithub/issues) section to
 report any bugs or feature requests and to see the list of known issues.
