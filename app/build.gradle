@@ -1,0 +1,172 @@
+apply plugin: 'android-sdk-manager'
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
+apply plugin: 'com.google.gms.google-services'
+
+/*if (file('credentials.config').exists() ) {
+    apply from: 'credentials.config';
+}*/
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def appVersionName = "\"0.0.0\""
+
+def BOOLEAN = "boolean"
+def INT = "int"
+def STRING = "String"
+
+def TRUE = "true"
+def FALSE = "false"
+def IS_AMAZON = "IS_AMAZON"
+def IS_FULL = "IS_FULL"
+def GOOGLE_LICENSE_LINK = "GOOGLE_LICENSE_LINK"
+def LICENSE_URI = "LICENSE_URI"
+def TRIAL_EXP_DAYS = "TRIAL_EXP_DAYS"
+def ID_NO = "ID_NO"
+def IN_APP_PUB_KEY = "IN_APP_PUB_KEY"
+
+def GOOGLE_LICENSE_LINK_VAL = "\"market://details?id=com.github.client.licence&c=apps\""
+def LICENSE_URI_VAL = "\"com.github.client.licence\""
+def TRIAL_EXP_DAYS_VAL = "7" //No of days
+def ID_NO_VAL = "900"
+def IN_APP_PUB_KEY_VAL = "\"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnc9WYLXsx0PJXFcUCb47CQZ2QCLWrLpNTm9GWZG3Hwchzt3fmAQC9PqTYiEKGTor47246b4Q64bKGDIWT7nemirJR/6HtsZxZe00niKgemHG/AVVpZZpgGrW1Xvu+Kmepw/OvY4OL6GW5Lr9nV8NuVGkyxeF/yQgYHv43gPSYRDitXIhKsEoUqZAhxFqC/z0ApjltJYRSfNJ8vXcOqRjkubBhpAQLYQq5UbR5KI5oEc+p5wNRnhWnD3lE+1rDoe8FxTLNEj5wGWHZttTQfcDnUPn0oqE2yj3XZ2iT/rXYZWUHr/IUhnLA0s816kJGLvDPoqF4LNihYT22RNK3oaBGQIDAQAB\""
+
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'trukey'
+            keyPassword 'iem/1983'
+            storeFile file('../Release/Keys/signKey.jks')
+            storePassword 'iem/1983'
+        }
+    }
+
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        applicationId 'com.github.client'
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode versionMajor * 1000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        appVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def file = output.outputFile
+                def fileName = file.name.replace("release", appVersionName)
+                fileName = fileName.replace("app", "TruGithub")
+                output.outputFile = new File(file.parent, fileName)
+            }
+        }
+
+        buildConfigField STRING, GOOGLE_LICENSE_LINK, GOOGLE_LICENSE_LINK_VAL
+        buildConfigField STRING, LICENSE_URI, LICENSE_URI_VAL
+        buildConfigField STRING, IN_APP_PUB_KEY, IN_APP_PUB_KEY_VAL
+        buildConfigField INT, TRIAL_EXP_DAYS, TRIAL_EXP_DAYS_VAL
+        buildConfigField INT, ID_NO, ID_NO_VAL
+
+        buildConfigField BOOLEAN, IS_AMAZON, FALSE
+        buildConfigField BOOLEAN, IS_FULL, TRUE
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFiles 'proguard-android-optimize.txt', 'proguard-rules.txt'
+        }
+
+        debug {
+//            signingConfig signingConfigs.config
+            zipAlignEnabled true
+            debuggable true
+            testCoverageEnabled false
+        }
+    }
+
+    productFlavors {
+        Lite {
+            applicationId 'com.github.client'
+            /*minSdkVersion sdkMinimumVersion
+            targetSdkVersion sdkTargetVersion*/
+            buildConfigField BOOLEAN, IS_FULL, FALSE
+        }
+        /*Full {
+            applicationId 'com.github.client.full'
+            *//*minSdkVersion sdkMinimumVersion
+            targetSdkVersion sdkTargetVersion*//*
+            buildConfigField BOOLEAN, IS_FULL, TRUE
+        }*/
+        /*Amazon {
+            applicationId 'com.github.client.amzn'
+//            compileSdkVersion "Amazon.com:Amazon Fire Phone SDK Addon:17"
+//            compileSdkVersion  "Amazon.com:Amazon Fire TV SDK Addon:17"
+//            compileSdkVersion  "Amazon.com:Amazon Fire Tablet SDK Addon:19"
+*//*            minSdkVersion sdkMinimumVersion
+            targetSdkVersion sdkTargetVersion*//*
+            buildConfigField BOOLEAN, IS_FULL, TRUE
+            buildConfigField BOOLEAN, IS_AMAZON, TRUE
+        }*/
+        Underground {
+            applicationId 'com.github.client.underground'
+//            compileSdkVersion "Amazon.com:Amazon Fire Phone SDK Addon:17"
+//            compileSdkVersion  "Amazon.com:Amazon Fire TV SDK Addon:17"
+//            compileSdkVersion  "Amazon.com:Amazon Fire Tablet SDK Addon:19"
+            /*minSdkVersion sdkMinimumVersion
+            targetSdkVersion sdkTargetVersion*/
+            buildConfigField BOOLEAN, IS_FULL, TRUE
+            buildConfigField BOOLEAN, IS_AMAZON, TRUE
+        }
+    }
+
+    /*play {
+        track = 'beta'
+        uploadImages = true
+    }*/
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.android.gms:play-services-analytics:8.3.0'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
+    compile 'org.roboguice:roboguice:2.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'org.eclipse.mylyn.github:org.eclipse.egit.github.core:4.2.0.201601211800-r'
+    compile('com.google.inject.extensions:guice-assistedinject:3.0') {
+        exclude group: 'com.google.inject'
+    }
+    compile 'com.viewpagerindicator:library:2.4.1@aar'
+    compile 'com.xwray:passwordview:0.1'
+
+    //Self compiled .aar version of wishlist
+    compile(name: 'lib', ext: 'aar')
+}

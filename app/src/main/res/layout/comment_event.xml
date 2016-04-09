@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/tv_event_icon"
+        style="@style/ListIcon"
+        android:layout_width="16dp" />
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/AvatarSmall"
+        android:layout_marginLeft="16dp"
+        android:contentDescription="@string/avatar" />
+
+    <TextView
+        android:id="@+id/tv_event"
+        style="@style/ListSubtitleText"
+        android:layout_marginLeft="16dp" />
+</LinearLayout>

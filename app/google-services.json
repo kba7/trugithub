@@ -1,0 +1,116 @@
+{
+  "project_info": {
+    "project_id": "trugithub-5adc",
+    "project_number": "334073274967",
+    "name": "TruGithub"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334073274967:android:b6a16bae8a3f284b",
+        "client_id": "android:com.github.client",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.github.client",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-75901994-1"
+          }
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334073274967:android:d8fd513dc74fdc37",
+        "client_id": "android:com.github.client.lite",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.github.client.lite",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-75901994-1"
+          }
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334073274967:android:ba52a71493ceb78f",
+        "client_id": "android:com.github.client.amzn",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.github.client.amzn",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-75901994-1"
+          }
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

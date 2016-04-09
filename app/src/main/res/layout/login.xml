@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="44dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+       <!-- <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar" />-->
+
+        <ImageView android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="36dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/sign_in_to_github"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"/>
+
+        <!--  Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <AutoCompleteTextView
+                android:id="@+id/et_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:completionThreshold="1"
+                android:hint="@string/username_or_email"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@+id/et_password" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!--  Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <com.xwray.passwordview.PasswordView
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+                android:typeface="monospace"
+                android:hint="@string/password"
+                app:useStrikeThrough="true"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:enabled="false"
+            android:text="@string/log_in"/>
+
+        <!--<CheckBox
+            android:id="@+id/cb_show_password"
+            style="@style/SubtitleText"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"
+            android:text="@string/show_password"
+            android:textColor="@color/text" />-->
+
+        <TextView android:id="@+id/tv_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="No account yet? Create one"
+            android:gravity="center"
+            android:textSize="16dip"/>
+
+    </LinearLayout>
+</ScrollView>
